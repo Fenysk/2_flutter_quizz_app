@@ -3,7 +3,7 @@ import 'package:quizz_app/models/quiz_question.dart';
 const questions = [
   QuizQuestion(
     text: 'Qu\'est-ce que Flutter ?',
-    anwsers: [
+    answers: [
       'Un SDK de développement d\'applications mobiles',
       'Un système d\'exploitation mobile',
       'Une bibliothèque JavaScript',
@@ -13,7 +13,7 @@ const questions = [
   QuizQuestion(
     text:
         'Quel langage de programmation utilise Flutter pour le développement d\'applications ?',
-    anwsers: [
+    answers: [
       'Dart',
       'JavaScript',
       'Python',
@@ -22,7 +22,7 @@ const questions = [
   ),
   QuizQuestion(
     text: 'Quelle est l\'utilité des widgets dans Flutter ?',
-    anwsers: [
+    answers: [
       'Construire l\'interface utilisateur',
       'Gérer les connexions réseau',
       'Stocker des données localement sur le téléphone',
@@ -32,7 +32,7 @@ const questions = [
   QuizQuestion(
     text:
         'Comment Flutter gère-t-il le rafraîchissement de l\'interface utilisateur pour refléter les changements d\'état ?',
-    anwsers: [
+    answers: [
       'Programmation réactive',
       'Utilisation de callbacks',
       'Multi-threading',
@@ -42,7 +42,7 @@ const questions = [
   QuizQuestion(
     text:
         'Quel outil Flutter permet de visualiser et de diagnostiquer les problèmes de performance des applications ?',
-    anwsers: [
+    answers: [
       'DevTools',
       'Flutter Console',
       'Flutter Doctor',
