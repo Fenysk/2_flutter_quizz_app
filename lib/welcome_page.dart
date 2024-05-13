@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 
-void startQuiz() {
-  // ignore: avoid_print
-  print('Le quiz commence !');
-}
-
 class WelcomePage extends StatelessWidget {
-  const WelcomePage({super.key});
+  const WelcomePage(this.startQuiz, {super.key});
+
+  final void Function() startQuiz;
 
   @override
   Widget build(BuildContext context) {
