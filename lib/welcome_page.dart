@@ -17,6 +17,7 @@ class WelcomePage extends StatelessWidget {
           Image.asset(
             'assets/images/quiz-logo.png',
             width: 300,
+            color: const Color.fromARGB(180, 255, 255, 255),
           ),
           const SizedBox(height: 60),
           const Text(
@@ -28,14 +29,22 @@ class WelcomePage extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 20),
-          OutlinedButton(
+          OutlinedButton.icon(
             onPressed: startQuiz,
             style: OutlinedButton.styleFrom(
-              textStyle: const TextStyle(
-                fontSize: 20,
+              textStyle: const TextStyle(fontSize: 20),
+              side: const BorderSide(color: Colors.white, width: 2),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
               ),
+              backgroundColor: const Color.fromARGB(60, 0, 0, 0),
             ),
-            child: const Text(
+            icon: const Icon(
+              Icons.arrow_right_alt,
+              size: 40,
+              color: Colors.white,
+            ),
+            label: const Text(
               'Commencer',
               style: TextStyle(
                 color: Colors.white,
