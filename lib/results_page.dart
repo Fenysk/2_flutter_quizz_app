@@ -3,7 +3,10 @@ import 'package:quizz_app/data/questions.dart';
 import 'package:quizz_app/question_summary.dart';
 
 class ResultsPage extends StatelessWidget {
-  const ResultsPage({super.key, required this.chosenAnswers});
+  const ResultsPage(this.switchToWelcome,
+      {super.key, required this.chosenAnswers});
+
+  final void Function() switchToWelcome;
 
   final List<String> chosenAnswers;
 
@@ -15,7 +18,8 @@ class ResultsPage extends StatelessWidget {
         'question_index': i,
         'question': questions[i].text,
         'correct_answer': questions[i].answers[0],
-        'user_answer': chosenAnswers[i]
+        'user_answer': chosenAnswers[i],
+        'isCorrectAnswer': questions[i].answers[0] == chosenAnswers[i]
       });
     }
 
@@ -43,9 +47,18 @@ class ResultsPage extends StatelessWidget {
             const SizedBox(height: 30),
             QuestionSummary(getSummaryData()),
             const SizedBox(height: 30),
-            TextButton(
-              onPressed: () {},
-              child: const Text('Recommencer'),
+            TextButton.icon(
+              onPressed: switchToWelcome,
+              style: TextButton.styleFrom(
+                foregroundColor: const Color.fromARGB(204, 0, 0, 0),
+              ),
+              icon: const Icon(
+                Icons.home,
+              ),
+              label: const Text(
+                'Revenir à l\'accueil',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+              ),
             )
           ],
         ),

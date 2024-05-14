@@ -9,27 +9,31 @@ class QuestionSummary extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: summaryData.map((data) {
-        return Row(
-          children: [
-            Text(((data['question_index'] as int) + 1).toString()),
-            Expanded(
-              child: Container(
-                margin: const EdgeInsets.symmetric(vertical: 4),
-                decoration: BoxDecoration(
-                  border: Border.all(width: 1),
-                ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(data['question'] as String),
-                    const SizedBox(height: 5),
-                    Text(data['user_answer'] as String),
-                    Text(data['correct_answer'] as String)
-                  ],
+        return Container(
+          width: double.infinity,
+          padding: const EdgeInsets.all(4),
+          margin: const EdgeInsets.symmetric(vertical: 4),
+          decoration: BoxDecoration(
+            border: Border.all(width: 1),
+            color: data['isCorrectAnswer'] == true ? Colors.green : Colors.red,
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                data['question'] as String,
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Color.fromARGB(155, 0, 0, 0),
                 ),
               ),
-            )
-          ],
+              const SizedBox(height: 10),
+              Text(
+                data['correct_answer'] as String,
+                textAlign: TextAlign.center,
+              ),
+            ],
+          ),
         );
       }).toList(),
     );

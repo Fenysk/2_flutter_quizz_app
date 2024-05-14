@@ -28,11 +28,17 @@ class _QuizState extends State<Quiz> {
     }
   }
 
-  void switchScreen() {
+  void startQuiz() {
     selectedAnswers = [];
 
     setState(() {
       activeScreen = 'question-screen';
+    });
+  }
+
+  void switchToWelcome() {
+    setState(() {
+      activeScreen = 'welcome-page';
     });
   }
 
@@ -47,10 +53,11 @@ class _QuizState extends State<Quiz> {
         );
         break;
       case 'results-page':
-        screenWidget = ResultsPage(chosenAnswers: selectedAnswers);
+        screenWidget =
+            ResultsPage(switchToWelcome, chosenAnswers: selectedAnswers);
         break;
       default:
-        screenWidget = WelcomePage(switchScreen);
+        screenWidget = WelcomePage(startQuiz);
     }
 
     return MaterialApp(
