@@ -34,6 +34,14 @@ class QuestionSummary extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 10),
+                    data['isCorrectAnswer'] == false
+                        ? Text(
+                            data['user_answer'] as String,
+                            style: const TextStyle(
+                              color: Color.fromARGB(92, 0, 0, 0),
+                            ),
+                          )
+                        : Container(),
                     Text(
                       data['correct_answer'] as String,
                       textAlign: TextAlign.center,
