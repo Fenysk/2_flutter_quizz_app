@@ -28,6 +28,12 @@ class ResultsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final summaryData = getSummaryData();
+    final numTotalQuestions = questions.length;
+    final numCorrectQuestions = summaryData.where((data) {
+      return data['isCorrectAnswer'] == true;
+    }).length;
+
     return SizedBox(
       width: double.infinity,
       child: Container(
@@ -44,8 +50,15 @@ class ResultsPage extends StatelessWidget {
               ),
               textAlign: TextAlign.center,
             ),
+            Text(
+              'Ton score est de $numCorrectQuestions sur $numTotalQuestions',
+              style: const TextStyle(
+                color: Colors.white,
+                fontSize: 18,
+              ),
+            ),
             const SizedBox(height: 30),
-            QuestionSummary(getSummaryData()),
+            QuestionSummary(summaryData),
             const SizedBox(height: 30),
             TextButton.icon(
               onPressed: switchToWelcome,
