@@ -29,9 +29,8 @@ class ResultsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final numTotalQuestions = questions.length;
-    final numCorrectQuestions = summaryData.where((data) {
-      return data['isCorrectAnswer'] == true;
-    }).length;
+    final numCorrectQuestions =
+        summaryData.where((data) => data['isCorrectAnswer'] == true).length;
 
     return SizedBox(
       width: double.infinity,
